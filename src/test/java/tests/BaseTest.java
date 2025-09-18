@@ -19,8 +19,8 @@ public class BaseTest {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 10000;
-        Configuration.browser = "chrome";
-        Configuration.browserVersion = "128";
+//        Configuration.browser = "chrome";
+//        Configuration.browserVersion = "128";
         Configuration.browserSize = "1920×1080";
         Configuration.remote = "http://localhost:4444/wd/hub";
 //        Configuration.browser = System.getProperty("browser");
