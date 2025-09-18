@@ -28,12 +28,12 @@ public class BaseTest {
 //        Configuration.browserSize = System.getProperty("browserSize");
 //        Configuration.remote = System.getProperty("remoteUrl");
 
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", true
-//        ));
-//        Configuration.browserCapabilities = capabilities;
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+        Configuration.browserCapabilities = capabilities;
 
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
@@ -43,7 +43,7 @@ public class BaseTest {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-//        Attach.addVideo();
+        Attach.addVideo();
         closeWebDriver();
     }
 }
