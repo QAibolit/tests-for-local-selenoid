@@ -22,7 +22,7 @@ public class BaseTest {
 //        Configuration.browser = "chrome";
 //        Configuration.browserVersion = "128";
         Configuration.browserSize = "1920×1080";
-        Configuration.remote = "http://localhost:4444/wd/hub";
+        Configuration.remote = "http://selenoid:4444/wd/hub";
 //        Configuration.browser = System.getProperty("browser");
 //        Configuration.browserVersion = System.getProperty("browserVersion");
 //        Configuration.browserSize = System.getProperty("browserSize");
