@@ -22,13 +22,13 @@
                 "image": "selenoid/firefox:125.0",
                 "port": "4444",
                 "path": "/",
-                "env": ["TZ=UTC", "ENABLE_VNC=true", "ENABLE_VIDEO=true"]
+                "env": ["TZ=UTC"]
             },
             "124": {
                 "image": "selenoid/firefox:124.0",
                 "port": "4444",
                 "path": "/",
-                "env": ["TZ=UTC", "ENABLE_VNC=true", "ENABLE_VIDEO=true"]
+                "env": ["TZ=UTC"]
             }
         }
     }
