@@ -40,7 +40,9 @@ public class BaseTest {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
+        if (projectConfig.enableVideo()) {
+            Attach.addVideo();
+        }
         closeWebDriver();
     }
 }
