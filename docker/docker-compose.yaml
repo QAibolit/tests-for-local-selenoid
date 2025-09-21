@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: my-jenkins-gradle
+    container_name: my-jenkins-gradle
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
+    networks:
+      - selenoid-net
+
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    container_name: selenoid
+    ports:
+      - "4444:4444"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/selenoid:/etc/selenoid:ro
+      - /var/selenoid/video:/opt/selenoid/video  # Хост:Контейнер
+      - /var/selenoid/logs:/opt/selenoid/logs
+    command: [
+      "-conf", "/etc/selenoid/browsers.json",
+      "-video-output-dir", "/opt/selenoid/video",  # Путь ВНУТРИ контейнера
+      "-log-output-dir", "/opt/selenoid/logs",
+      "-container-network", "selenoid-net" 
+    ]
+    environment:
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/var/selenoid/video
+    networks:
+      - selenoid-net
+
+  selenoid-ui:
+    image: aerokube/selenoid-ui:latest
+    container_name: selenoid-ui
+    ports:
+      - "8081:8080"
+    command: ["--selenoid-uri", "http://selenoid:4444"]
+    depends_on:
+      - selenoid
+    networks:
+      - selenoid-net
+
+networks:
+  selenoid-net:
+    external: true
+
+volumes:
+  video-storage:
+  jenkins_home:
