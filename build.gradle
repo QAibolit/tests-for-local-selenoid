@@ -35,7 +35,8 @@ dependencies {
             'io.qameta.allure:allure-selenide:2.29.1',
             'org.junit.jupiter:junit-jupiter:5.11.3',
             'org.aspectj:aspectjweaver:1.9.22.1',
-            'com.codeborne:selenide:7.5.1'
+            'com.codeborne:selenide:7.5.1',
+            'org.aeonbits.owner:owner:1.0.12'
     )
 }
 
