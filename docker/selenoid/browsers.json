@@ -6,24 +6,13 @@
                 "image": "selenoid/chrome:128.0",
                 "port": "4444",
                 "path": "/",
-                "env": ["TZ=UTC", "ENABLE_VNC=true", "ENABLE_VIDEO=true"],
-		"selenoid:options": {
-                  "enableVNC": "true",
-                  "enableLog": "true",
-                  "enableVideo": "true"
-                }
+                "env": ["TZ=UTC", "ENABLE_VNC=true", "ENABLE_VIDEO=true"]
             },
             "127": {
                 "image": "selenoid/chrome:127.0",
                 "port": "4444",
                 "path": "/",
-                "env": ["TZ=UTC", "ENABLE_VNC=true", "ENABLE_VIDEO=true"],
-		"selenoid:options": {
-                  "enableVNC": "true",
-                  "enableLog": "true",
-                  "enableVideo": "true"
-                }
-            }
+                "env": ["TZ=UTC", "ENABLE_VNC=true", "ENABLE_VIDEO=true"]
         }
     },
     "firefox": {
