@@ -22,8 +22,8 @@ public class BaseTest {
         Configuration.timeout = projectConfig.timeout();
         Configuration.remote = projectConfig.remoteUrl();
         Configuration.browser = projectConfig.browser();
-        Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.browserVersion = System.getProperty("browserVersion", projectConfig.browserVersion());
+        Configuration.browserSize = System.getProperty("browserSize", projectConfig.browserSize());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
